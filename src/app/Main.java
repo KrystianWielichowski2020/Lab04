@@ -8,6 +8,8 @@ import builders.TeslaModel3;
 import builders.TeslaModelS;
 import directors.CarDealershipDirector;
 import entities.Car;
+import interfaces.Visitor;
+import presenters.Presenter;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,5 +37,14 @@ public class Main {
         Car car = director.getCar();
 
         System.out.println("\nTest klas wykorzystujących wzorzec Builder\nUtworzony samochód: " + car);
+
+        /*
+        Test klas wykorzystujących wzorzec Visitor
+         */
+
+
+        System.out.println("\nTest klas wykorzystujących wzorzec Visitor\nUtworzona reklama:\n");
+        Visitor visitor = new Presenter();
+        visitor.visit((TeslaModelS) carBuilderModelS);
     }
 }

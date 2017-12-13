@@ -1,6 +1,9 @@
 package builders;
 
-public class TeslaModelS extends CarBuilder {
+import interfaces.Visitable;
+import interfaces.Visitor;
+
+public class TeslaModelS extends CarBuilder implements Visitable {
     @Override
     public void buildBrand() {
         getCar().setBrand("Tesla");
@@ -14,5 +17,9 @@ public class TeslaModelS extends CarBuilder {
     @Override
     public void buildPrice() {
         getCar().setPrice(60000);
+    }
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }
